@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        div {
+            background-color: aqua;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin: 30px auto;
+            padding: 10px;
+            width: 300px;
+            height: 20px;
+            text-align: center;
+        }
+
+    </style>
+
+    <title>Incorporando Javascript em Páginas HTML</title>
+</head>
+<body>
+    <div id="exibe_resultado">Resultado do Cálculo = </div>
+</body>
+
+    <script type="text/javascript">
+            
+        // var variavel; // Declarando uma variável cujo nome é 'variavel'
+
+        var variavel = "Olá "; // Atribuindo valores e aplicando uma operação matemática a variável.
+        var nome = window.prompt("Qual o seu nome?");
+
+        alert(variavel + nome + "! " + "Vamos começar!");
+        
+        var peso = parseFloat(prompt("Digite seu peso:"));
+        var altura = parseFloat(prompt("Digite sua altura:"));
+        var resultadoImc = calcule(peso, altura); // Chamando a função 'calcule' passando dois valores - 10 e 50
+
+        /* Manipulando a árvore DOM a fim de exibir, dentro do div declarada no HTML, o resultado da multiplicação juntamente com o seu texto inicial. */
+
+        var divLocal = document.getElementById('exibe_resultado');
+
+        /* Neste ponto a variável divLocal é um objeto que representa a div declarada no HTML. Sendo um objeto é possível acessar seus atributos, como innerHTML, precedido do nome do objeto seguido de um '.' */
+
+        divLocal.innerHTML += resultadoImc;
+
+        // Definição da função 'multiplique' que recebe dois parâmetros - numero1 e numero2
+
+        function calcule(peso, altura) {
+
+            /* Declarando uma variável que guardará o resultado da operação de calculo;
+            Iniciando a variável com o valor 0. */
+            var resultado = 0;
+
+            // Atribuindo à variável 'resultado' o valor resultante do cálculo dos 2 parâmetros recebidos
+            resultado = peso / (altura * altura);
+
+            // Retornando (devolvendo) o valor da variável resultado
+            return resultado;
+        }
+
+    </script>
+</html>
