@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+
+            background-color: lightgray;
+
+        }
+
+        h1, h3 {
+
+            width: 75vw;
+            margin: 20px auto;
+            text-align: center;
+
+        }
+
+        div#bloco {
+
+            background-color: rgb(250, 155, 155);
+            width: 450px;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 5px;
+            box-shadow: 1.5px 1.5px 5px rgba(0, 0, 0, 0.5);
+
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        /* div#bloco > label {
+
+            width: 80%;
+        } */
+
+        div#bloco > input[type=text] {
+
+            width: 150px;
+            height: 25px;
+            margin: 5px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        div#bloco > button {
+
+            width: 70px;
+            height: 25px;
+            margin: 5px;
+            font-size: 0.9em;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        p#result {
+
+            background-color: rgb(92, 0, 0);
+            color: white;
+            width: 30%;
+            font-size: 1.1em;
+            text-align: center;
+            border: 5px;
+            border-radius: 5px;
+
+            flex: auto;
+
+        }
+
+    </style>
+
+    <title>Perímetro</title>
+</head>
+<body>
+    <h1>Perímetro do Círculo</h1>
+    <h3>Fórmula: 2 * &pi; * raio</h3>
+    <div id="bloco">
+
+        <!-- <label for="raio">Digite o valor do raio</label> -->
+
+        <input type="text" id="raio" placeholder="Digite o raio da circulo">
+
+        <button onclick="calcular()">Calcular</button>
+
+        <button onclick="limpar()">Limpar</button>
+
+        <p id="result"></p>
+
+    </div>
+</body>
+
+<script>
+
+    function calcular() {
+
+        var raio = Number.parseFloat(document.getElementById('raio').value);
+        var result = document.getElementById('result');
+
+        /* const pi = 3.14; */
+
+        var calculo = 2 * Math.PI * raio;
+
+        result.innerHTML = `Perímetro: ${calculo.toFixed(2)}`;
+    }
+
+    function limpar() {
+
+        document.getElementById('result').innerHTML = "";
+    }
+
+</script>
+
+
+</html>
